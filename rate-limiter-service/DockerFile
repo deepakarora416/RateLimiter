@@ -1,0 +1,6 @@
+from maven:eclipse
+WORKDIR /
+COPY ..
+run mvn clean package -DskipTests -q
+Expose 8080
+CMD ["java","-jar", "target/rate-limiter-service-1.0.0.jar"]

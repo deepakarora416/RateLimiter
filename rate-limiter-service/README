@@ -1,0 +1,19 @@
+# Rate Limiter APi Service
+
+Per-Client rate limiting service using sliding window algo
+
+## APIs
+1. Register Client -- Post /clients
+2. Check Rate Limit -- Get /allow/{clientId}
+
+## Run
+mvn spring-boot:run
+
+## Docker
+docker build -t rate-limiter
+docker run -p 8080:8080 rate0limiter
+
+## Design 
+1. Algo - Sliding Window - 1 Min Window
+2. Thread Safety - ConcurrentHashMap and ConcurrentLinkedDeque
+3. Extensibility - Strategy Pattern for swapping also - like fixed window, leaky bucket
